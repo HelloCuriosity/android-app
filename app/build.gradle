@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion sdk.compileVersion
+    buildToolsVersion sdk.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.hello.curiosity"
+        minSdkVersion sdk.minVersion
+        targetSdkVersion sdk.targetVersion
+        versionCode product.versionCode
+        versionName product.versionName
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.force libraries.appcompat
+        resolutionStrategy.force libraries.kotlin
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android
+    implementation libraries.appcompat
+    implementation libraries.constraint
+    implementation libraries.core
+    implementation libraries.design
+
+    // Hello Curiosity
+    implementation libraries.androidAnimations
+
+    // Kotlin
+    implementation libraries.kotlin
+
+    // Rx
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.rxKotlin
+
+    // Testing
+    testImplementation test.androidxTest
+
+    // JUnit
+    testImplementation test.junit
+
+    // Mockito
+    testImplementation test.mockito.core
+    testImplementation(test.mockito.kotlin) {
+        exclude group: 'org.mockito', module: 'mockito-core'
+    }
+
+    // Robolectric
+    testImplementation(test.robolectric) {
+        exclude module: 'classworlds'
+        exclude module: 'commons-logging'
+        exclude module: 'httpclient'
+        exclude module: 'maven-artifact'
+        exclude module: 'maven-artifact-manager'
+        exclude module: 'maven-error-diagnostics'
+        exclude module: 'maven-model'
+        exclude module: 'maven-project'
+        exclude module: 'maven-settings'
+        exclude module: 'plexus-container-default'
+        exclude module: 'plexus-interpolation'
+        exclude module: 'plexus-utils'
+        exclude module: 'wagon-file'
+        exclude module: 'wagon-http-lightweight'
+        exclude module: 'wagon-provider-api'
+    }
+}

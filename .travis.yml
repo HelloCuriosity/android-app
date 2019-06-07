@@ -1,0 +1,52 @@
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "curious-coding"
+    token:
+      secure: ${SONAR_TOKEN}
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle/daemon'     #Cache daemon logs
+    - '$HOME/.gradle/native'     #Cache library downloaded from the gradle dependency
+    - '$HOME/.gradle/wrapper'    #Cache the gradle
+
+language: android
+
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    # - tools
+    # - platform-tools
+
+    # The BuildTools version used by your project
+    - build-tools-28.0.3
+
+    # The SDK version used to compile your project
+    - android-28
+
+jobs:
+  include:
+    - stage: "Dependencies"
+      name: "Check Dependencies"
+      script: ./gradlew dependencyUpdates
+    - stage: "Lint"
+      name: "Linting"
+      script: ./gradlew lint
+    - stage: "Assemble"
+      name: "Assemble"
+      script: ./gradlew assembleRelease
+    - stage: "Tests"
+      name: "Unit Tests"
+      script: ./gradlew testDebug
+    - stage: "Code Coverage"
+      name: "Code Coverage"
+      script: ./gradlew testDebugUnitTest jacocoTestReport
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+    - stage: "Static Analysis"
+      name: "Static Analysis"
+      script: sonar-scanner
