@@ -30,9 +30,6 @@ android:
 
 jobs:
   include:
-    - stage: "Dependencies"
-      name: "Check Dependencies"
-      script: ./gradlew dependencyUpdates
     - stage: "Lint"
       name: "Linting"
       script: ./gradlew lint
