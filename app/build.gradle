@@ -39,7 +39,7 @@ dependencies {
 //    implementation libraries.androidAnimations
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.60'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.50'
 
     // RxJava
