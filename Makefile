@@ -16,6 +16,6 @@ unit-test:
 	./gradlew testDebug
 
 report:
-	./gradlew testDebugUnitTest jacocoTestReport
+	./gradlew jacocoTestDebugUnitTestReport
 
 all: clean assemble bundle unit-test report
