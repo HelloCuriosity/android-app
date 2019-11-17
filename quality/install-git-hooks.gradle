@@ -1,0 +1,7 @@
+task installGitHooks() {
+    def prePushFile = new File(rootProject.rootDir, 'scripts/pre-push').toString()
+    def hooksDir = new File(rootProject.rootDir, '.git/hooks/.').toString()
+    Runtime.getRuntime().exec("ln -s $prePushFile $hooksDir")
+}
+
+preBuild.dependsOn installGitHooks
