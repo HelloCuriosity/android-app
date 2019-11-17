@@ -1,0 +1,39 @@
+apply plugin: 'jacoco-android'
+apply plugin: 'org.jmailen.kotlinter'
+
+android {
+    lintOptions {
+        noLines false
+        showAll true
+        textReport true
+        textOutput 'stdout'
+        xmlReport false
+        htmlReport true
+        warningsAsErrors true
+        warning 'GoogleAppIndexingWarning',
+                'GradleDependency'
+    }
+
+    kotlinter {
+        disabledRules = ["import-ordering"] // Disables forced alphabetic imports
+    }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+}
+
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled false
+    xml.enabled true
+}
