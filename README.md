@@ -8,5 +8,6 @@
 
 ## Travis CI Integration:
 - Linting
+    - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
 - Unit testing with coverage report (https://codecov.io)
 - Static analysis with Sonar
