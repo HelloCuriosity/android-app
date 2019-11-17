@@ -1,6 +1,8 @@
 apply plugin: 'jacoco-android'
 apply plugin: 'org.jmailen.kotlinter'
 apply plugin: 'io.gitlab.arturbosch.detekt'
+apply from: rootProject.file('quality/install-git-hooks.gradle')
+
 
 android {
     lintOptions {

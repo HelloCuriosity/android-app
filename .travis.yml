@@ -32,7 +32,7 @@ android:
 
 jobs:
   include:
-    - stage: Lint
+    - stage: Build
       name: Linting
       env: MAKETARGET=lint
     - name: Assemble

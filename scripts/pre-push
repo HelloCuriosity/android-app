@@ -1,0 +1,19 @@
+#!/bin/sh
+# From gist at https://gist.github.com/chadmaughan/5889802
+
+STASH_LABEL="prepushhook"
+git stash push -m "$STASH_LABEL" -q --keep-index
+
+# run checks
+make pre-push
+
+# store the last exit code in a variable
+RESULT=$?
+
+# pop the stashed changes - when applicable
+if [[ $(git stash list | grep "$STASH_LABEL" | wc -l) -gt 0 ]]; then
+    git stash pop -q
+fi
+
+# return the './gradlew test' exit code
+exit ${RESULT}

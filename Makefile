@@ -1,21 +1,23 @@
-.PHONY: clean assemble bundle unit-test report all
+.PHONY: clean assemble bundle unit-test report pre-push all
 
 clean:
 	./gradlew clean
 
 lint:
-	./gradlew lintRelease lintKotlin detekt
+	./gradlew lintRelease lintKotlin detekt --continue --console 'plain'
 
 assemble:
-	./gradlew assembleRelease
+	./gradlew assembleRelease --continue --console 'plain'
 
 bundle:
-	./gradlew bundleRelease
+	./gradlew bundleRelease --continue --console 'plain'
 
 unit-test:
-	./gradlew testDebug
+	./gradlew testDebug --continue --console 'plain'
 
 report:
-	./gradlew jacocoTestDebugUnitTestReport
+	./gradlew jacocoTestDebugUnitTestReport --continue --console 'plain'
+
+pre-push: lint
 
 all: clean assemble bundle unit-test report

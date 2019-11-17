@@ -13,3 +13,12 @@
 - Static code analysis
     - Sonar
     - [detekt](https://github.com/arturbosch/detekt)
+
+## Project Level Quality Gate
+
+### Pre-push checks
+You can enable pre-push hooks by running: `./gradlew tasks` 
+You can add or remove checks by updating the `pre-push` target in the [makefile](Makefile). The following checks are enabled per default:
+- linting
+- kotlinter
+- detekt
