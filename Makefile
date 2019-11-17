@@ -4,7 +4,7 @@ clean:
 	./gradlew clean
 
 lint:
-	./gradlew lintRelease lintKotlin
+	./gradlew lintRelease lintKotlin detekt
 
 assemble:
 	./gradlew assembleRelease
