@@ -1,4 +1,8 @@
 dist: trusty
+language: android
+
+jdk:
+  - oraclejdk8
 
 addons:
   sonarcloud:
@@ -12,8 +16,6 @@ cache:
     - '$HOME/.gradle/daemon'     #Cache daemon logs
     - '$HOME/.gradle/native'     #Cache library downloaded from the gradle dependency
     - '$HOME/.gradle/wrapper'    #Cache the gradle
-
-language: android
 
 android:
   components:
@@ -30,20 +32,20 @@ android:
 
 jobs:
   include:
-    - stage: "Lint"
-      name: "Linting"
-      script: ./gradlew lint
-    - stage: "Assemble"
-      name: "Assemble"
-      script: ./gradlew assembleRelease
-    - stage: "Tests"
-      name: "Unit Tests"
-      script: ./gradlew testDebug
-    - stage: "Code Coverage"
-      name: "Code Coverage"
-      script: ./gradlew testDebugUnitTest jacocoTestReport
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
-    - stage: "Static Analysis"
-      name: "Static Analysis"
+    - stage: Lint
+      name: Linting
+      env: MAKETARGET=lint
+    - name: Assemble
+      env: MAKETARGET=assemble
+    - name: Bundle
+      env: MAKETARGET=bundle
+    - name: Unit Test
+      env: MAKETARGET=unit-test
+    - name: Coverage Report
+      env: MAKETARGET=report
+    - name: Static Analysis
       script: sonar-scanner
+script:
+  - make clean $MAKETARGET
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
