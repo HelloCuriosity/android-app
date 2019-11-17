@@ -10,4 +10,6 @@
 - Linting
     - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
 - Unit testing with coverage report (https://codecov.io)
-- Static analysis with Sonar
+- Static code analysis
+    - Sonar
+    - [detekt](https://github.com/arturbosch/detekt)
