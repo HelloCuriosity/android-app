@@ -1,6 +1,7 @@
 # Android App Template
 
 [![Build Status](https://travis-ci.com/curious-coding/android-app.svg?branch=master)](https://travis-ci.com/curious-coding/android-app)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=curious-coding_android-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=curious-coding_android-app)
 [![codecov](https://codecov.io/gh/curious-coding/android-app/branch/master/graph/badge.svg)](https://codecov.io/gh/curious-coding/android-app)
 [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/curious-coding/android-app/blob/master/LICENSE)
 [![ko-fi](https://img.shields.io/badge/donate%20on-Ko--fi-blue.svg)](https://ko-fi.com/U7U4L9F5)
