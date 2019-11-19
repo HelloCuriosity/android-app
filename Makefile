@@ -1,23 +1,43 @@
+TRAVIS_PULL_REQUEST ?= false
+TRAVIS ?= false
+FLAVOR ?= Staging
+BUILD_TYPE ?= Debug
+GRADLEARGS ?= --build-cache
+
+ifeq ($(TRAVIS), true)
+  ifeq ($(TRAVIS_PULL_REQUEST), false)
+    # Branch [release] build
+    GRADLEARGS +=
+    FLAVOR = Production
+    BUILD_TYPE = Release
+  else
+    # Pull request build
+    GRADLEARGS += --build-cache
+    FLAVOR = Staging
+    BUILD_TYPE = Release
+  endif
+endif
+
 .PHONY: clean assemble bundle unit-test report pre-push all
 
 clean:
 	./gradlew clean
 
 lint:
-	./gradlew lintRelease lintKotlin detekt --continue --console 'plain'
+	./gradlew lint${FLAVOR}${BUILD_TYPE} lintKotlin detekt --continue --console 'plain' ${GRADLEARGS}
 
 assemble:
-	./gradlew assembleRelease --continue --console 'plain'
+	./gradlew assemble${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
 bundle:
-	./gradlew bundleRelease --continue --console 'plain'
+	./gradlew bundle${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
 unit-test:
-	./gradlew testDebug --continue --console 'plain'
+	./gradlew test${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
 report:
-	./gradlew jacocoTestDebugUnitTestReport --continue --console 'plain'
+	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
 
 pre-push: lint
 
-all: clean assemble bundle unit-test report
+all: clean lint assemble bundle unit-test report

@@ -36,3 +36,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    ciBuild = System.getenv("TRAVIS") == "true"
+    ciBuildNr = System.getenv("TRAVIS_BUILD_NUMBER")
+}

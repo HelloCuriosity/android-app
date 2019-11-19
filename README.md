@@ -13,6 +13,8 @@
 - Static code analysis
     - Sonar
     - [detekt](https://github.com/arturbosch/detekt)
+- Build APKs
+- Build Bundles
 
 ## Project Level Quality Gate
 
@@ -22,3 +24,15 @@ You can add or remove checks by updating the `pre-push` target in the [makefile]
 - linting
 - kotlinter
 - detekt
+
+## App Signing
+
+### On Travis CI
+Add your `storePassword` and `keyPassword` as an environment variable in Travis to enable app signing:
+- `storePassword` env -> `KEYSTORE_PASSWORD`
+- `keyPassword` env -> `KEY_PASSWORD`
+
+### Local Signing
+You can use one of the two scripts to sign your `apk` and or `aab`
+- `apk` -> `./scripts/apk-release.sh`
+- `aab` -> `./scripts/bundle-release.sh`
