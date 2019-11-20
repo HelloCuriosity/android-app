@@ -52,7 +52,7 @@ jobs:
       env: MAKETARGET=report
     - name: Static Analysis
       script: sonar-scanner
-
+      env: MAKETARGET=analysis
 script:
   - make clean $MAKETARGET
 

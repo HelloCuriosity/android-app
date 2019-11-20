@@ -18,7 +18,7 @@ ifeq ($(TRAVIS), true)
   endif
 endif
 
-.PHONY: clean assemble bundle unit-test report pre-push all
+.PHONY: clean assemble bundle unit-test report pre-push analysis all
 
 clean:
 	./gradlew clean
@@ -38,6 +38,9 @@ unit-test:
 report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
 
+analysis:
+	./gradlew sonarqube --continue --console 'plain' ${GRADLEARGS}
+
 pre-push: lint
 
-all: clean lint assemble bundle unit-test report
+all: clean lint assemble bundle unit-test report analysis
