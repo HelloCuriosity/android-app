@@ -1,5 +1,8 @@
 dist: trusty
 language: android
+branches:
+  only:
+    - master
 
 jdk:
   - oraclejdk8
@@ -10,25 +13,29 @@ addons:
     token:
       secure: ${SONAR_TOKEN}
 
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
 cache:
   directories:
     - '$HOME/.sonar/cache'
     - '$HOME/.gradle/daemon'     #Cache daemon logs
     - '$HOME/.gradle/native'     #Cache library downloaded from the gradle dependency
     - '$HOME/.gradle/wrapper'    #Cache the gradle
+    - "$HOME/.android/build-cache/"
 
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
-
-    # The BuildTools version used by your project
+    - tools
+    - platform-tools
+    - extra-android-support
+    - extra-google-m2repository
+    - extra-android-m2repository
     - build-tools-28.0.3
-
-    # The SDK version used to compile your project
     - android-28
+  licenses:
+    - android-sdk-license-.+
 
 jobs:
   include:
@@ -45,7 +52,9 @@ jobs:
       env: MAKETARGET=report
     - name: Static Analysis
       script: sonar-scanner
+
 script:
   - make clean $MAKETARGET
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
