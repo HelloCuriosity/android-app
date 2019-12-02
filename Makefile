@@ -39,7 +39,7 @@ report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
 
 analysis:
-	./gradlew sonarqube --continue --console 'plain' ${GRADLEARGS}
+	./gradlew unit-test report sonarqube --continue --console 'plain' ${GRADLEARGS}
 
 pre-push: lint
 
