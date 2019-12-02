@@ -85,7 +85,7 @@ dependencies {
 
     // Kotlin
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.60'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.60'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.61'
 
     // Hello Curiosity
     implementation 'com.github.curious-coding:android-animations:0.4.0'
