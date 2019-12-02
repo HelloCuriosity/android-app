@@ -35,6 +35,10 @@ android {
     }
 }
 
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
 jacocoAndroidUnitTestReport {
     csv.enabled false
     html.enabled false
