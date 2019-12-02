@@ -11,7 +11,7 @@
 ## Travis CI Integration:
 - Linting
     - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
-- Unit testing with coverage report (https://codecov.io)
+- [Covdecov](https://codecov.io) coverage reports
 - Static code analysis
     - Sonar
     - [detekt](https://github.com/arturbosch/detekt)
@@ -20,8 +20,12 @@
 
 ## Project Level Quality Gate
 
+### LeakCanary
+[LeakCanary](https://square.github.io/leakcanary/) is a memory leak detection library for Android.
+
+
 ### Pre-push checks
-You can enable pre-push hooks by running: `./gradlew tasks` 
+You can enable pre-push hooks by running: `./gradlew installGitHooks` 
 You can add or remove checks by updating the `pre-push` target in the [makefile](Makefile). The following checks are enabled per default:
 - linting
 - kotlinter
@@ -35,6 +39,5 @@ Add your `storePassword` and `keyPassword` as an environment variable in Travis 
 - `keyPassword` env -> `KEY_PASSWORD`
 
 ### Local Signing
-You can use one of the two scripts to sign your `apk` and or `aab`
-- `apk` -> `./scripts/apk-release.sh`
-- `aab` -> `./scripts/bundle-release.sh`
+You can use the [release.sh](/scripts/release.sh) script to sign your apks or aabs.
+`./scripts/release.sh`
