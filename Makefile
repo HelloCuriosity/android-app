@@ -39,7 +39,7 @@ report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
 
 sonarqube:
-	./gradlew sonarqube --continue --console 'plain' ${GRADLEARGS}
+	./scripts/sonar-scan.sh ${FLAVOR} ${BUILD_TYPE}
 
 analysis: unit-test report sonarqube
 

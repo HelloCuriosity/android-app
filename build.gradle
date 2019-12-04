@@ -26,28 +26,13 @@ plugins {
 }
 
 sonarqube {
-    def flavorName = ""
-    def buildType = ""
-    if (project.hasProperty("flavor")) {
-        flavorName = flavor
-        buildType = "Release"
-        androidVariant flavorName + buildType
-    } else {
-        buildType = "Debug"
-        androidVariant buildType
-    }
-
     properties {
         property "sonar.projectName", "Android App Template"
         property "sonar.projectKey", "curious-coding_android-app"
+        property "sonar.organization", "curious-coding"
         property "sonar.java.source", "8"
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.language", "java"
-
-        property "sonar.java.binaries", "build/tmp/kotlin-classes/${flavorName}${buildType.capitalize()}/"
-        property "sonar.java.test.binaries", "build/tmp/kotlin-classes/${flavorName}${buildType.capitalize()}/"
-
-        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/jacocoTest${flavorName.capitalize()}${buildType.capitalize()}UnitTestReport/"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.exclusions", "**/*.js,**/*.css,**/*.html"
     }
