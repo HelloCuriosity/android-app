@@ -18,7 +18,10 @@ android {
     }
 
     kotlinter {
-        disabledRules = ["import-ordering"] // Disables forced alphabetic imports
+        disabledRules = [
+                "import-ordering",  // Disables forced alphabetic imports
+                "final-newline"  // Disables forced newline at the end of a file
+        ]
     }
 
     testOptions {
