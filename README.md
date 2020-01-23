@@ -11,6 +11,7 @@
 ## Travis CI Integration:
 - Linting
     - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
+    - [rxlint](https://www.littlerobots.nl/blog/RxLint-a-lint-rule-for-RxJava/)
 - [Covdecov](https://codecov.io) coverage reports
 - Static code analysis
     - Sonar

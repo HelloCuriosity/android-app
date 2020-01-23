@@ -18,7 +18,7 @@ class SplashPresenter(
             Completable.complete()
                 .delay(delay, timeUnit, scheduler.compute)
                 .observeOn(scheduler.main)
-                .subscribe(view::startMainActivity)
+                .subscribe(view::startMainActivity, ::println)
         )
     }
 
