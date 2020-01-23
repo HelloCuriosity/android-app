@@ -45,7 +45,7 @@ elif [[ "${INPUT}" == "a" ]] ||
   ARTIFACT="apk/${FLAVOR}/${BUILD_TYPE}/"
 else
   echo "Invalid input. Abort"
-  exit 0
+  exit 1
 fi
 
 echo "Creating ${APP_TYPE} for ${FLAVOR}${BUILD_TYPE}"
