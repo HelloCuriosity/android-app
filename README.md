@@ -26,7 +26,8 @@
 
 ### Pre-push checks
 You can enable pre-push hooks by running: `./gradlew installGitHooks` 
-You can add or remove checks by updating the `pre-push` target in the [makefile](Makefile). The following checks are enabled per default:
+You can add or remove checks by updating the `pre-push` target in the [makefile](Makefile). The following checks are 
+enabled per default:
 - linting
 - kotlinter
 - detekt
@@ -41,3 +42,8 @@ Add your `storePassword` and `keyPassword` as an environment variable in Travis 
 ### Local Signing
 You can use the [release.sh](/scripts/release.sh) script to sign your apks or aabs.
 `./scripts/release.sh`
+
+## Tooling
+You can use the [install.sh](/scripts/install.sh) script to easily deploy your apks built using the
+[release.sh](/scripts/release.sh) script.
+ 
