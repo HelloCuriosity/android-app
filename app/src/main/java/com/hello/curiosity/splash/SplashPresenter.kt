@@ -8,11 +8,10 @@ import java.util.concurrent.TimeUnit
 
 class SplashPresenter(
     private val scheduler: SchedulerProvider,
+    private val disposeBag: CompositeDisposable = CompositeDisposable(),
     private val delay: Long = 3,
     private val timeUnit: TimeUnit = TimeUnit.SECONDS
 ) : Presenter<SplashView> {
-
-    private val disposeBag = CompositeDisposable()
 
     override fun bind(view: SplashView) {
         disposeBag.add(
