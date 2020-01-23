@@ -38,6 +38,10 @@ android {
     }
 }
 
+dependencies {
+    implementation 'nl.littlerobots.rxlint:rxlint:1.7.5'
+}
+
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
 }
