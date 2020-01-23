@@ -1,6 +1,0 @@
-ext.sdk = [
-        minVersion       : 19,
-        targetVersion    : 28,
-        compileVersion   : 28,
-        buildToolsVersion: "28.0.3"
-]
