@@ -1,10 +1,10 @@
-package com.hello.curiosity.splash
+package com.hello.curiosity.template.splash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.hello.curiosity.MainActivity
+import com.hello.curiosity.template.main.MainActivity
 import com.hello.curiosity.R
-import com.hello.curiosity.common.SchedulerProvider
+import com.hello.curiosity.template.common.SchedulerProvider
 
 class SplashActivity : AppCompatActivity(), SplashView {
 

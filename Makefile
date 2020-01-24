@@ -18,7 +18,7 @@ ifeq ($(TRAVIS), true)
   endif
 endif
 
-.PHONY: clean assemble bundle unit-test report pre-push analysis sonarqube release install all
+.PHONY: clean assemble bundle unit-test android-test report pre-push analysis sonarqube release install all
 
 clean:
 	./gradlew clean
@@ -34,6 +34,9 @@ bundle:
 
 unit-test:
 	./gradlew test${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
+
+android-test:
+	./gradlew connected${FLAVOR}DebugAndroidTest connectedCheck --console 'plain' ${GRADLEARGS}
 
 report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
@@ -51,4 +54,4 @@ release:
 install:
 	./scripts/install.sh ${FLAVOR} ${BUILD_TYPE}
 
-all: clean lint assemble bundle unit-test report analysis
+all: clean lint assemble bundle unit-test android-test report analysis

@@ -12,13 +12,27 @@ coverage:
       default:
         target: 30%
         threshold: 10%
-
     patch:
       default:
-        target: 0%
-        threshold: 10%
-
+        target: 1%
+        threshold: 5%
+    unit:
+      target: 1%
+      threshold: 5%
+      flags: unit
+    integration:
+      target: 1%
+      threshold: 5%
+      flags: connected
     changes: no
+
+flags:
+  unit:
+    paths:
+      - app/src/test
+  integration:
+    paths:
+      - app/src/androidTest
 
 parsers:
   gcov:
@@ -36,3 +50,5 @@ comment:
   layout: "header, diff"
   behavior: default
   require_changes: no
+#  flags:
+#    - androidTest

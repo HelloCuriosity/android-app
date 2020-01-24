@@ -1,9 +1,10 @@
-package com.hello.curiosity
+package com.hello.curiosity.template.main
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.hello.curiosity.R
 
 class MainActivity : AppCompatActivity() {
 
