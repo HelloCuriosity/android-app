@@ -4,14 +4,14 @@ branches:
   only:
     - master
 
-jdk:
-  - oraclejdk8
-
 addons:
   sonarcloud:
     organization: "curious-coding"
     token:
       secure: ${SONAR_TOKEN}
+
+jdk:
+  - oraclejdk8
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -29,14 +29,15 @@ android:
   components:
     - tools
     - platform-tools
+    - build-tools-29.0.2
+    - android-29
     - extra-android-support
     - extra-google-m2repository
     - extra-android-m2repository
-    - build-tools-29.0.2
-    - android-29
+    - sys-img-$ABI-$API_TAG-$EMULATOR_LEVEL
   licenses:
     - android-sdk-license-.+
-
+    - google-gdk-license-.+
 jobs:
   include:
     - stage: Build
