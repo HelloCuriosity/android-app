@@ -1,6 +1,6 @@
-package com.hello.curiosity.splash
+package com.hello.curiosity.template.splash
 
-import com.hello.curiosity.common.SchedulerProvider
+import com.hello.curiosity.template.common.SchedulerProvider
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.reset
 import com.nhaarman.mockito_kotlin.verify

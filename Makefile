@@ -35,6 +35,9 @@ bundle:
 unit-test:
 	./gradlew test${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
+android-test:
+	./gradlew connected${FLAVOR}DebugAndroidTest --console 'plain' ${GRADLEARGS}
+
 report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
 

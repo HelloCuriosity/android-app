@@ -48,10 +48,29 @@ jobs:
       env: MAKETARGET=bundle
     - name: Unit Test
       env: MAKETARGET=unit-test
+    - name: Android Test
+      env:
+        - MAKETARGET=android-test
+        - EMULATOR_LEVEL=25
+        - ABI="arm64-v8a"
+        - API_TAG="google_apis"
     - name: Coverage Report
       env: MAKETARGET=report
     - name: Static Analysis
       env: MAKETARGET=analysis
+
+before_script:
+  - android list target | grep -E '^id:' | awk -F '"' '{$1=""; print $2}'
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]]; then echo "y" | android update sdk -a --no-ui
+    --filter "sys-img-${ABI}-${API_TAG}-${EMULATOR_LEVEL}"; fi
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]] && [[ "${API_TAG}" == "android" ]]; then API_TAG="default";
+    export API_TAG; fi
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]]; then echo no | android create avd --force -n
+    test -t "android-${EMULATOR_LEVEL}" -b "${ABI}" -g "${API_TAG}" -c 100M; fi
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]]; then { emulator -avd test -no-window &}; fi
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]]; then android-wait-for-emulator; fi
+  - if [[ ! -z "${EMULATOR_LEVEL}" ]]; then { adb shell input keyevent 82 &}; fi
+
 script:
   - make clean $MAKETARGET
 

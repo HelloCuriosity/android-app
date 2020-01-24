@@ -1,4 +1,4 @@
-package com.hello.curiosity.splash
+package com.hello.curiosity.template.splash
 
 interface SplashView {
     /**

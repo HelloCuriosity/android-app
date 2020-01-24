@@ -1,4 +1,4 @@
-package com.hello.curiosity.common
+package com.hello.curiosity.template.common
 
 interface Presenter<in T> {
     fun bind(view: T): Unit
