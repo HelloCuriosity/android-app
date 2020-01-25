@@ -10,20 +10,26 @@ coverage:
   status:
     project:
       default:
-        target: 30%
+        target: 75%
         threshold: 10%
+        flags: unit, integration
+
     patch:
       default:
-        target: 1%
-        threshold: 5%
+        target: 60%
+        threshold: 10%
+        flags: unit, integration
+
     unit:
       target: 20%
       threshold: 5%
       flags: unit
+
     integration:
       target: 20%
       threshold: 5%
-      flags: connected
+      flags: integration
+
     changes: no
 
 flags:
