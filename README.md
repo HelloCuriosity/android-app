@@ -13,6 +13,8 @@
     - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
     - [rxlint](https://www.littlerobots.nl/blog/RxLint-a-lint-rule-for-RxJava/)
 - [Covdecov](https://codecov.io) coverage reports
+- Integration tests
+    - Run connected / ui tests on an emulator
 - Static code analysis
     - Sonar
     - [detekt](https://github.com/arturbosch/detekt)
