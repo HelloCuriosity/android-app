@@ -7,8 +7,7 @@ branches:
 addons:
   sonarcloud:
     organization: "curious-coding"
-    token:
-      secure: ${SONAR_TOKEN}
+    token: ${SONAR_TOKEN}
 
 jdk:
   - oraclejdk8
