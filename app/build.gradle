@@ -99,7 +99,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
     // Testing
     testImplementation 'androidx.test:core:1.2.0'
