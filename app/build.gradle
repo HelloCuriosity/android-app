@@ -8,8 +8,8 @@ apply plugin: 'kotlin-android-extensions'
 apply from: rootProject.file('quality/quality-gate.gradle')
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -19,7 +19,7 @@ android {
     defaultConfig {
         applicationId "com.hello.curiosity"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
 
         versionCode 1
         if (ciBuild) {

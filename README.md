@@ -8,7 +8,11 @@
 
 ## AndroidX Support
 
-## Travis CI Integration:
+## CI Support:
+- Github Actions
+- Travis
+
+## CI Integration:
 - Linting
     - [kotlinter](https://github.com/jeremymailen/kotlinter-gradle)
     - [rxlint](https://www.littlerobots.nl/blog/RxLint-a-lint-rule-for-RxJava/)
@@ -37,8 +41,8 @@ enabled per default:
 
 ## App Signing
 
-### On Travis CI
-Add your `storePassword` and `keyPassword` as an environment variable in Travis to enable app signing:
+### On CI
+Add your `storePassword` and `keyPassword` as an environment variable on your CI to enable app signing:
 - `storePassword` env -> `KEYSTORE_PASSWORD`
 - `keyPassword` env -> `KEY_PASSWORD`
 
