@@ -51,6 +51,10 @@ task clean(type: Delete) {
 }
 
 ext {
-    ciBuild = System.getenv("TRAVIS") == "true"
-    ciBuildNr = System.getenv("TRAVIS_BUILD_NUMBER")
+    ciBuild = System.getenv("CI") == "true"
+    if (System.getenv("TRAVIS") == true) {
+        ciBuildNr = System.getenv("TRAVIS_BUILD_NUMBER")
+    } else {
+        ciBuildNr = System.getenv("GITHUB_RUN_ID")
+    }
 }
