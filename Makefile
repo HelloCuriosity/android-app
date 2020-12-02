@@ -18,13 +18,13 @@ ifeq ($(TRAVIS), true)
   endif
 endif
 
-.PHONY: clean assemble bundle unit-test android-test report pre-push analysis sonarqube release install all
+.PHONY: analysis android-test assemble bundle clean install lint pre-push release report sonarqube unit-test \
+upload-coverage all
 
-clean:
-	./gradlew clean
+analysis: unit-test report sonarqube
 
-lint:
-	./gradlew lint${FLAVOR}${BUILD_TYPE} lintKotlin detekt --continue --console 'plain' ${GRADLEARGS}
+android-test:
+	./gradlew connected${FLAVOR}DebugAndroidTest connectedCheck --console 'plain' ${GRADLEARGS}
 
 assemble:
 	./gradlew assemble${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
@@ -32,11 +32,19 @@ assemble:
 bundle:
 	./gradlew bundle${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
-unit-test:
-	./gradlew test${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
+clean:
+	./gradlew clean
 
-android-test:
-	./gradlew connected${FLAVOR}DebugAndroidTest connectedCheck --console 'plain' ${GRADLEARGS}
+install:
+	./scripts/install.sh ${FLAVOR} ${BUILD_TYPE}
+
+lint:
+	./gradlew lint${FLAVOR}${BUILD_TYPE} lintKotlin detekt --continue --console 'plain' ${GRADLEARGS}
+
+pre-push: lint
+
+release:
+	./scripts/release.sh ${FLAVOR} ${BUILD_TYPE}
 
 report:
 	./gradlew jacocoTest${FLAVOR}${BUILD_TYPE}UnitTestReport --continue --console 'plain' ${GRADLEARGS}
@@ -44,14 +52,10 @@ report:
 sonarqube:
 	./scripts/sonar-scan.sh ${FLAVOR} ${BUILD_TYPE}
 
-analysis: unit-test report sonarqube
+unit-test:
+	./gradlew test${FLAVOR}${BUILD_TYPE} --continue --console 'plain' ${GRADLEARGS}
 
-pre-push: lint
-
-release:
-	./scripts/release.sh ${FLAVOR} ${BUILD_TYPE}
-
-install:
-	./scripts/install.sh ${FLAVOR} ${BUILD_TYPE}
+upload-coverage:
+	./scripts/upload-coverage.sh ${CODECOV_TOKEN}
 
 all: clean lint assemble bundle unit-test android-test report analysis
