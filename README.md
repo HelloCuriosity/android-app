@@ -51,7 +51,6 @@ You can use the [install.sh](/scripts/install.sh) script to easily deploy your a
 [release.sh](/scripts/release.sh) script.
 
 ## NOTE:
-Support for Travis CI has been discontinued respective of the pricing[changes](https://blog.travis-ci
-.com/2020-11-02-travis-ci-new-billing) in November 2020. These pricing changes aren't viable for this specific open
-source project. If you are still interested in running Travis on a paid plan you can still find an example in [v1.0.0]
-(https://github.com/HelloCuriosity/android-app/releases/tag/v1.0.0)
+Support for Travis CI has been discontinued respective of the pricing [changes](https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing)
+in November 2020. These pricing changes aren't viable for this specific open source project. If you are still interested
+in running Travis on a paid plan you can still find an example in [v1.0.0](https://github.com/HelloCuriosity/android-app/releases/tag/v1.0.0)
