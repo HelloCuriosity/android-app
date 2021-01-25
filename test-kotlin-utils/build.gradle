@@ -1,6 +1,5 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
-apply plugin: 'jacoco'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -8,12 +7,12 @@ java {
 }
 
 dependencies {
+    // Modules
+    api project(':kotlin-sdk')
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.21"
 
-    // Junit
-    testImplementation 'junit:junit:4.13.1'
-
     // Fritter factory
-    testImplementation 'one.equinox.fritterfactory:fritterfactory:0.0.6'
+    implementation 'one.equinox.fritterfactory:fritterfactory:0.0.6'
 }
