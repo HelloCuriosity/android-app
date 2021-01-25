@@ -1,7 +1,7 @@
 package com.hello.curiosity.template.splash
 
-import com.hello.curiosity.template.common.Presenter
-import com.hello.curiosity.template.common.SchedulerProvider
+import com.hello.curiosity.data.presentation.Presenter
+import com.hello.curiosity.data.threading.SchedulerProvider
 import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit

@@ -39,3 +39,6 @@ captures/
 
 # Mac files
 .DS_Store
+
+# Jacoco
+jacoco.exec

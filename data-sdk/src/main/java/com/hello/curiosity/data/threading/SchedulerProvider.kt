@@ -1,4 +1,4 @@
-package com.hello.curiosity.template.common
+package com.hello.curiosity.data.threading
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

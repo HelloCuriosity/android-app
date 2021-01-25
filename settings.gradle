@@ -1,3 +1,9 @@
+include ':test-kotlin-utils'
 rootProject.name = 'Android App Template'
 
 include ':app'
+include ':data-sdk'
+include ':kotlin-sdk'
+
+// Test
+include ':test-android-utils'

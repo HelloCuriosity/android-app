@@ -7,7 +7,7 @@ import com.hello.curiosity.R
 import com.hello.curiosity.template.test.EspressoAssert.Companion.assertView
 import com.hello.curiosity.template.test.isVisible
 import com.hello.curiosity.template.test.withText
-import junit.framework.Assert.assertNotNull
+import org.junit.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

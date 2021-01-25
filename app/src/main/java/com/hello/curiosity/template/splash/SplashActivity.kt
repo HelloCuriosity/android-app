@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hello.curiosity.template.main.MainActivity
 import com.hello.curiosity.R
-import com.hello.curiosity.template.common.SchedulerProvider
+import com.hello.curiosity.data.threading.SchedulerProvider
 
 class SplashActivity : AppCompatActivity(), SplashView {
 
