@@ -80,6 +80,12 @@ android {
     viewBinding {
         enabled true
     }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        // Skip pre-dexing when running on CI or when disabled via -Dpre-dex=false.
+        preDexLibraries = preDexEnabled && !ciBuild
+    }
 }
 
 dependencies {
