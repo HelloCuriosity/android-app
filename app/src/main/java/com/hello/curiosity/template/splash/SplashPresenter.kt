@@ -1,5 +1,6 @@
 package com.hello.curiosity.template.splash
 
+import com.hello.curiosity.data.presentation.Presenter
 import com.hello.curiosity.data.threading.SchedulerProvider
 import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
@@ -10,7 +11,7 @@ class SplashPresenter(
     private val disposeBag: CompositeDisposable = CompositeDisposable(),
     private val delay: Long = 3,
     private val timeUnit: TimeUnit = TimeUnit.SECONDS
-) : com.hello.curiosity.data.presentation.Presenter<SplashView> {
+) : Presenter<SplashView> {
 
     override fun bind(view: SplashView) {
         disposeBag.add(
