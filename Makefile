@@ -1,11 +1,11 @@
-TRAVIS_PULL_REQUEST ?= false
-TRAVIS ?= false
+PULL_REQUEST ?= false
+CI ?= false
 FLAVOR ?= Staging
 BUILD_TYPE ?= Debug
 GRADLEARGS ?= --build-cache
 
-ifeq ($(TRAVIS), true)
-  ifeq ($(TRAVIS_PULL_REQUEST), false)
+ifeq ($(CI), true)
+  ifeq ($(PULL_REQUEST), false)
     # Branch [release] build
     GRADLEARGS +=
     FLAVOR = Production
