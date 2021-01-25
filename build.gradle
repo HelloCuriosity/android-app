@@ -52,7 +52,7 @@ task clean(type: Delete) {
 
 ext {
     ciBuild = System.getenv("CI") == "true"
-    ciBuildNr = System.getenv("BUILD_NR")
+    ciBuildNr = System.getenv("GITHUB_RUN_NUMBER")
     // allows for -Dpre-dex=false to be set
     preDexEnabled = "true" == System.getProperty("pre-dex", "true")
 }
