@@ -3,7 +3,7 @@ name: Android App Template 🚀
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   android-test:
