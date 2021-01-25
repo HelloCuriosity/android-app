@@ -1,7 +1,7 @@
 # Android App Template
 
-[![codecov](https://codecov.io/gh/HelloCuriosity/android-app/branch/main/graph/badge.svg)](https://codecov.io/gh/HelloCuriosity/android-app)
-[![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/curious-coding/android-app/blob/main/LICENSE)
+[![codecov](https://codecov.io/gh/HelloCuriosity/android-app/branch/main/graph/badge.svg?token=yZAINvBPLJ)](https://codecov.io/gh/HelloCuriosity/android-app)
+[![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/HelloCuriosity/android-app/blob/main/LICENSE)
 [![ko-fi](https://img.shields.io/badge/donate%20on-Ko--fi-blue.svg)](https://ko-fi.com/U7U4L9F5)
 
 ## AndroidX Support
