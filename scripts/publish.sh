@@ -25,8 +25,8 @@ fi
 
 # Create Google Play json for publishing
 echo "Creating Google Play Publish json"
-./scripts/decrypt.sh android-template-ads;lfk.json.aes-256-cbc.enc.b64 \
-    android-template-ads;lfk.json ${PLAY_PUBLISH_PASSWORD}
+./scripts/decrypt.sh android-template-302820-bc106506c0aa.json.aes-256-cbc.enc.b64 \
+    android-template-302820-bc106506c0aa.json ${PLAY_PUBLISH_PASSWORD}
 
 # Publish
 ${REPO_DIR}/gradlew -p "$REPO_DIR" publish${FLAVOR}${BUILD_TYPE}Bundle --info

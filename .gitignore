@@ -42,3 +42,6 @@ captures/
 
 # Jacoco
 jacoco.exec
+
+# Publishing
+android-template-302820-bc106506c0aa.json
