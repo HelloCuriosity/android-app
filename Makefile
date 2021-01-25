@@ -18,7 +18,7 @@ ifeq ($(CI), true)
   endif
 endif
 
-.PHONY: analysis android-test assemble bundle clean install lint pre-push release report sonarqube unit-test \
+.PHONY: analysis android-test assemble bundle clean install lint pre-push publish release report sonarqube unit-test \
 upload-coverage all
 
 analysis: unit-test report sonarqube
@@ -42,6 +42,9 @@ lint:
 	./gradlew lint${FLAVOR}${BUILD_TYPE} lintKotlin detekt --continue --console 'plain' ${GRADLEARGS}
 
 pre-push: lint
+
+publish:
+	./scripts/publish.sh ${FLAVOR} ${BUILD_TYPE} ${PLAY_PUBLISH_PASSWORD}
 
 release:
 	./scripts/release.sh ${FLAVOR} ${BUILD_TYPE}
