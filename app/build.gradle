@@ -77,6 +77,10 @@ android {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/rxjava.properties'
     }
+
+    viewBinding {
+        enabled true
+    }
 }
 
 dependencies {
