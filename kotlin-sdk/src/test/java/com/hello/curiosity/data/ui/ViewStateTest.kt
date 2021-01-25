@@ -33,7 +33,7 @@ class ViewStateTest {
 
     @Test
     fun testEmpty() {
-        val model = ViewState.Loading<TestObject>()
+        val model = ViewState.Empty<TestObject>()
         assertNull(model.value())
         assertNull(model.error())
     }
