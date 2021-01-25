@@ -1,7 +1,7 @@
 package com.hello.curiosity.template.splash
 
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.rule.ActivityTestRule
 import com.hello.curiosity.R
 import com.hello.curiosity.template.test.EspressoAssert.Companion.assertView
 import com.hello.curiosity.template.test.isVisible
@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 class SplashActivityTest {
 
     @get:Rule
-    var rule = ActivityTestRule(SplashActivity::class.java)
+    var rule = ActivityScenarioRule(SplashActivity::class.java)
 
     @Test
     fun testActivity() {
