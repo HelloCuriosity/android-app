@@ -4,7 +4,6 @@ def versionPatch = 0
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply from: rootProject.file('quality/quality-gate.gradle')
 
 android {
