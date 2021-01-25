@@ -110,6 +110,8 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 
     // Testing
+    testImplementation project(':test-android-utils')
+
     testImplementation 'androidx.test:core:1.3.0'
 
     // JUnit

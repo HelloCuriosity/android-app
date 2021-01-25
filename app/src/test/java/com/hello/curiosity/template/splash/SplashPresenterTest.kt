@@ -19,13 +19,13 @@ import java.util.concurrent.TimeUnit
 class SplashPresenterTest {
 
     @Mock
-    private lateinit var mockView: SplashView
+    private lateinit var view: SplashView
 
     @Mock
     private lateinit var testSchedulerProvider: SchedulerProvider
 
     @Mock
-    private lateinit var mockDisposeBag: CompositeDisposable
+    private lateinit var disposeBag: CompositeDisposable
 
     private lateinit var testScheduler: TestScheduler
 
@@ -40,27 +40,27 @@ class SplashPresenterTest {
     @Test
     fun testBind() {
         val presenter = SplashPresenter(testSchedulerProvider)
-        presenter.bind(mockView)
+        presenter.bind(view)
 
         testScheduler.advanceTimeTo(3, TimeUnit.SECONDS)
 
-        verify(mockView).startMainActivity()
+        verify(view).startMainActivity()
 
-        verifyNoMoreInteractions(mockView)
+        verifyNoMoreInteractions(view)
     }
 
     @Test
     fun testUnbind() {
-        val presenter = SplashPresenter(testSchedulerProvider, mockDisposeBag)
-        presenter.bind(mockView)
+        val presenter = SplashPresenter(testSchedulerProvider, disposeBag)
+        presenter.bind(view)
         testScheduler.triggerActions()
 
-        reset(mockView, mockDisposeBag)
+        reset(view, disposeBag)
 
         presenter.unbind()
 
-        verify(mockDisposeBag).clear()
+        verify(disposeBag).clear()
 
-        verifyNoMoreInteractions(mockView, mockDisposeBag)
+        verifyNoMoreInteractions(view, disposeBag)
     }
 }
