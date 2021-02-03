@@ -11,7 +11,7 @@ dependencies {
     api project(':kotlin-sdk')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.21"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30"
 
     // Fritter factory
     implementation 'one.equinox.fritterfactory:fritterfactory:0.0.6'
