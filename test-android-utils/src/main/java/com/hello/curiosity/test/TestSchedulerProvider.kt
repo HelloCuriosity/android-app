@@ -1,8 +1,8 @@
 package com.hello.curiosity.test
 
 import com.hello.curiosity.data.threading.SchedulerProvider
-import io.reactivex.Scheduler
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class TestSchedulerProvider(
     private val provider: SchedulerProvider = module(Schedulers.trampoline())
