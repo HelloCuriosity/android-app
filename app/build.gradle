@@ -136,7 +136,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.10'
     implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
 
     // Testing
     testImplementation project(':test-android-utils')
