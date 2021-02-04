@@ -1,0 +1,26 @@
+name: Publishing 🚢
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Playstore Publish
+    runs-on: ubuntu-latest
+    env:
+      BUILD_TYPE: Release
+      CODECOV_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}
+      KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      PLAY_PUBLISH_PASSWORD: ${{ secrets.PLAY_PUBLISH_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: setup JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Publishing Production
+        run: make clean report upload-coverage bundle publish FLAVOR=Production
