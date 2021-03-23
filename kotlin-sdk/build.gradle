@@ -12,7 +12,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30"
 
     // Junit
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
 
     // Fritter factory
     testImplementation 'one.equinox.fritterfactory:fritterfactory:0.0.6'
