@@ -9,7 +9,7 @@ java {
 
 dependencies {
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32"
 
     // Junit
     testImplementation 'junit:junit:4.13.2'
