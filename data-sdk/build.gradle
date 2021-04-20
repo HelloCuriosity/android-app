@@ -37,7 +37,7 @@ dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32'
 
     // RxJava
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'

@@ -37,7 +37,7 @@ dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.30'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32'
 
     // Fritter factory
     implementation 'one.equinox.fritterfactory:fritterfactory:0.0.6'
