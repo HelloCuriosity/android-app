@@ -1,5 +1,6 @@
 # Android App Template
 
+[![Build Status](https://github.com/HelloCuriosity/android-app/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/HelloCuriosity/android-app/actions)
 [![codecov](https://codecov.io/gh/HelloCuriosity/android-app/branch/main/graph/badge.svg?token=yZAINvBPLJ)](https://codecov.io/gh/HelloCuriosity/android-app)
 [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/HelloCuriosity/android-app/blob/main/LICENSE)
 
