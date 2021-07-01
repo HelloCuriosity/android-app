@@ -141,7 +141,7 @@ dependencies {
     // Testing
     testImplementation project(':test-android-utils')
 
-    testImplementation 'androidx.test:core:1.3.0'
+    testImplementation 'androidx.test:core:1.4.0'
 
     // JUnit
     testImplementation 'androidx.test.ext:junit:1.1.2'
