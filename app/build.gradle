@@ -126,7 +126,7 @@ dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.21'
 
     // Hello Curiosity
     implementation 'com.github.curious-coding:android-animations:0.4.0'
